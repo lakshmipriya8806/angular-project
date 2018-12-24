@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col">
+        <label for="testInput">
+            Country Name:
+            <input type="search" [(ngModel)]="testInput" (ngModelChange)="getCountriesByName(testInput)" placeholder="Please enter the country name"
+                class="form-control" />
+        </label>
+    </div>
+    <div class="col">
+        <label for="countryId">
+            Countries:
+            <ul id="countryId">
+                <li *ngFor="let country of countriesByName">
+                    {{country.name}} - {{country.alpha3Code}}
+                </li>
+                <li [hidden]="!(!countriesByName || countriesByName.length === 0)">
+                    No results found!!!
+                </li>
+            </ul>
+        </label>
+    </div>
+</div>
+
+<div class="row">
+    <div>
+        <label for="countryByNameId">
+            Static list of countries:
+            <ul id="countryByNameId">
+                <li *ngFor="let country of countries">
+                    {{country.name}} - {{country.alpha3Code}}
+                </li>
+            </ul>
+        </label>
+    </div>
+</div>

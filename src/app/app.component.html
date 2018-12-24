@@ -1,0 +1,12 @@
+<div>
+  <h1 (click)="titleClicked()" class="priya-text-center">
+    Welcome to {{ title }}!
+  </h1>
+  <div [hidden]="toggle">
+    Title is clicked
+  </div>
+
+  <div class="row">
+      <router-outlet></router-outlet>
+  </div>
+</div>
