@@ -2,18 +2,20 @@
     <div class="col">
         <label for="testInput">
             Country Name:
-            <input type="search" [(ngModel)]="testInput" (ngModelChange)="getCountriesByName(testInput)" placeholder="Please enter the country name"
+            <input type="search" [ngModel]="countryInput" 
+                (ngModelChange)="getCountriesByName($event)" 
+                placeholder="Please enter the country name"
                 class="form-control" />
         </label>
     </div>
     <div class="col">
         <label for="countryId">
-            Countries:
+            Countries Results:
             <ul id="countryId">
-                <li *ngFor="let country of countriesByName">
+                <li class="priya-text-green" *ngFor="let country of countriesByName">
                     {{country.name}} - {{country.alpha3Code}}
                 </li>
-                <li [hidden]="!(!countriesByName || countriesByName.length === 0)">
+                <li class="priya-text-red" [hidden]="!(!countriesByName || countriesByName.length === 0)">
                     No results found!!!
                 </li>
             </ul>

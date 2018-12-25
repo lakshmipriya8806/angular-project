@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { CountryComponent } from "./country/country.component";
+import { PageNotFoundComponent } from "./page-not-found/page.not.found.component";
 
 const appRoutes: Routes = [
   {
@@ -17,13 +18,17 @@ const appRoutes: Routes = [
     redirectTo: '/country',
     pathMatch: 'full'
   },
-  { path: '**', component: CountryComponent }
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountryComponent
+    CountryComponent,
+    PageNotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(

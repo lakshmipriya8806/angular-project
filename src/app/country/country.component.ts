@@ -8,20 +8,20 @@ import { CountryService, CountryByNameResponse } from "./country.service";
   providers: [CountryService]
 })
 export class CountryComponent {
-  testInput: string;
-  countries: any;
-  countriesByName: any;
+  countryInput: string;
+  countries: CountryByNameResponse[];
+  countriesByName: CountryByNameResponse[];
 
   constructor(
     private appService: CountryService
   ) {
-    this.getCountries();
+    this.getAllCountries();
   }
 
-  private getCountries(): void {
+  private getAllCountries(): void {
     let vm = this;
-    this.appService.getCountries().subscribe(
-      successRes => {
+    this.appService.getAllCountries().subscribe(
+      (successRes: CountryByNameResponse[]) => {
         console.log("countries==> ", successRes);
         vm.countries = successRes;
       },
@@ -39,8 +39,13 @@ export class CountryComponent {
     this.appService.getCountriesByName(countryName).subscribe(
       (success: CountryByNameResponse[]) => {
         this.countriesByName = success;
+        console.log("countries==> ", success);
       }, error => {
+        console.log("errorRes===> ", error);
         this.countriesByName = undefined;
+      },
+      () => {
+        console.log("finally block");
       }
     );
   }
