@@ -1,6 +1,13 @@
 # SampleAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+This is a sample Angular application which was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+
+Routing is enabled and by default the application landing page displays the Country screen which has the country names.
+The CountryComponent communicates with CountryService to retrieve the country names from external RestFul webservices using the Angular HTTPClient module.
+
+Routing is configured to display a "Page Not Found" screen if the user tries to type any other link which is not defined in the route configurations.
+
+Jasmine is used to write the test case and Karma runner is used to execute the test cases.
 
 ## Development server
 
